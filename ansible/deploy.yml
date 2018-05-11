@@ -1,0 +1,11 @@
+---
+- hosts: redis_servers
+  tasks:
+    - import_role:
+        name: infra-redis-cluster
+
+- hosts: first
+  tasks:
+   - import_role:
+        name: infra-redis-cluster
+        tasks_from: start_cluster

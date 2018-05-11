@@ -1,0 +1,9 @@
+---
+- hosts: redis_servers
+  become: yes
+  gather_facts: no
+  pre_tasks:
+    - name: install python2.7
+      raw:  apt-get -y install python2.7
+    - name: link python2.7 to /usr/bin/python
+      raw: ln -snf /usr/bin/python2.7 /usr/bin/python
